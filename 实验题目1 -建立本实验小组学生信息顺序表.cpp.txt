@@ -1,98 +1,98 @@
-//ÊµÑéÌâÄ¿1
-//½¨Á¢±¾ÊµÑéÐ¡×éÑ§ÉúÐÅÏ¢Ë³Ðò±í£»
+//å®žéªŒé¢˜ç›®1
+//å»ºç«‹æœ¬å®žéªŒå°ç»„å­¦ç”Ÿä¿¡æ¯é¡ºåºè¡¨ï¼›
 
 
-/*ÒªÇó£º
-0.ÏÂÃæµÄ´úÂë¹©²Î¿¼£¬¿ÉÒÔÔÚ´Ë³ÌÐò¿ò¼ÜÏÂ±àÐ´£¬Ò²¿ÉÒÔÈ«²¿×ÔÐÐ±àÐ´Íê³É±¾ÊµÑéÌâÄ¿
-1.ÔªËØµÄÊý¾ÝÏîÊÇ3Ïî£ºÑ§ºÅ£¬Ñ§ÉúÐÕÃû£¬×¨Òµ
-2.Ä¿Ç°µÄ³ÌÐòÒÑ¾ß±¸µÄ»ù±¾²Ù×÷£º³õÊ¼»¯£»
-3.Çë±àÐ´²Ù×÷£º´´½¨¡¢È¡Öµ¡¢²éÕÒ¡¢²åÈë¡¢É¾³ý;
-4.ÊµÑé±¨¸æÓÃWordÌá½»£¬ÊµÑé±¨¸æÄÚÈÝ¡¢¸ñÊ½µÄÒªÇó¼û¡¶Êý¾Ý½á¹¹ÓëËã·¨¡·ÊµÑé±¨¸æÄ£°å
-5.ÊµÑé±¨¸æÓÉ±¾×é¹²Í¬Íê³É£¬×é³¤¸ºÔðÌá½»
+/*è¦æ±‚ï¼š
+0.ä¸‹é¢çš„ä»£ç ä¾›å‚è€ƒï¼Œå¯ä»¥åœ¨æ­¤ç¨‹åºæ¡†æž¶ä¸‹ç¼–å†™ï¼Œä¹Ÿå¯ä»¥å…¨éƒ¨è‡ªè¡Œç¼–å†™å®Œæˆæœ¬å®žéªŒé¢˜ç›®
+1.å…ƒç´ çš„æ•°æ®é¡¹æ˜¯3é¡¹ï¼šå­¦å·ï¼Œå­¦ç”Ÿå§“åï¼Œä¸“ä¸š
+2.ç›®å‰çš„ç¨‹åºå·²å…·å¤‡çš„åŸºæœ¬æ“ä½œï¼šåˆå§‹åŒ–ï¼›
+3.è¯·ç¼–å†™æ“ä½œï¼šåˆ›å»ºã€å–å€¼ã€æŸ¥æ‰¾ã€æ’å…¥ã€åˆ é™¤;
+4.å®žéªŒæŠ¥å‘Šç”¨Wordæäº¤ï¼Œå®žéªŒæŠ¥å‘Šå†…å®¹ã€æ ¼å¼çš„è¦æ±‚è§ã€Šæ•°æ®ç»“æž„ä¸Žç®—æ³•ã€‹å®žéªŒæŠ¥å‘Šæ¨¡æ¿
+5.å®žéªŒæŠ¥å‘Šç”±æœ¬ç»„å…±åŒå®Œæˆï¼Œç»„é•¿è´Ÿè´£æäº¤
 */
 
 //
 #include<iostream>
-#include<string>        //ÓÃÓÚ¶¨Òå×Ö·û´®ÀàÐÍ±äÁ¿
-#include<iomanip>       //ÓÃÓÚ¿ØÖÆÊä³ö¸ñÊ½£¬Ä¿Ç°ÔÝÊ±»¹ÓÃ²»µ½
+#include<string>        //ç”¨äºŽå®šä¹‰å­—ç¬¦ä¸²ç±»åž‹å˜é‡
+#include<iomanip>       //ç”¨äºŽæŽ§åˆ¶è¾“å‡ºæ ¼å¼ï¼Œç›®å‰æš‚æ—¶è¿˜ç”¨ä¸åˆ°
 using namespace std;
 
-/*******ÒÔÏÂÊÇºê¶¨Òå***************************/
+/*******ä»¥ä¸‹æ˜¯å®å®šä¹‰***************************/
 
-#define OK 1         //º¯Êý½á¹û×´Ì¬Âë,±íÊ¾º¯Êý¹¦ÄÜÖ´ÐÐ³É¹¦
-#define ERROR 0      //º¯Êý½á¹û×´Ì¬Âë,±íÊ¾º¯Êý¹¦ÄÜÖ´ÐÐÊ§°Ü
-					 //Èç¹ûÓÃboolÐÍ±äÁ¿(È¡Öµ:true,false)£¬¿ÉÒÔ²»ÓÃºê¶¨ÒåOKºÍERROR,ÕâÀïÎÒÃÇÓë½Ì²Ä±£³ÖÒ»ÖÂ£¬²»²ÉÓÃ
+#define OK 1         //å‡½æ•°ç»“æžœçŠ¶æ€ç ,è¡¨ç¤ºå‡½æ•°åŠŸèƒ½æ‰§è¡ŒæˆåŠŸ
+#define ERROR 0      //å‡½æ•°ç»“æžœçŠ¶æ€ç ,è¡¨ç¤ºå‡½æ•°åŠŸèƒ½æ‰§è¡Œå¤±è´¥
+					 //å¦‚æžœç”¨boolåž‹å˜é‡(å–å€¼:true,false)ï¼Œå¯ä»¥ä¸ç”¨å®å®šä¹‰OKå’ŒERROR,è¿™é‡Œæˆ‘ä»¬ä¸Žæ•™æä¿æŒä¸€è‡´ï¼Œä¸é‡‡ç”¨
 
-#define OVERFLOW -1  //º¯Êý½á¹û×´Ì¬Âë,±íÊ¾º¯ÊýÖ´ÐÐÊ±Òç³ö
-					//£¨×¢ÒâVS¶ÔOVERFLOWÒÑ¾­×öÁËºê¶¨Òå,ÕâÀïÊÇÖØ¶¨Òå£¬¼ÓÕâÌõÊÇÎªÁËÓë½Ì²Ä±£³ÖÒ»ÖÂ£©
+#define OVERFLOW -1  //å‡½æ•°ç»“æžœçŠ¶æ€ç ,è¡¨ç¤ºå‡½æ•°æ‰§è¡Œæ—¶æº¢å‡º
+					//ï¼ˆæ³¨æ„VSå¯¹OVERFLOWå·²ç»åšäº†å®å®šä¹‰,è¿™é‡Œæ˜¯é‡å®šä¹‰ï¼ŒåŠ è¿™æ¡æ˜¯ä¸ºäº†ä¸Žæ•™æä¿æŒä¸€è‡´ï¼‰
 
-//#define ElemType Student //Êý¾ÝÔªËØÀàÐÍ£¨¸ù¾ÝÊµ¼ÊÐèÒªÈ·¶¨£¬´ËÀýÎªStudentÐÍ£¬ÄÚº¬¶à¸öÊý¾ÝÏî£©
+//#define ElemType Student //æ•°æ®å…ƒç´ ç±»åž‹ï¼ˆæ ¹æ®å®žé™…éœ€è¦ç¡®å®šï¼Œæ­¤ä¾‹ä¸ºStudentåž‹ï¼Œå†…å«å¤šä¸ªæ•°æ®é¡¹ï¼‰
 
 
-#define MAXSIZE  5  //Ë³Ðò±íµÄ×î´ó³¤¶È£¨Ó¦¸ù¾ÝÊµ¼ÊÐèÒªÈ·¶¨´ËÖµ£©
+#define MAXSIZE  5  //é¡ºåºè¡¨çš„æœ€å¤§é•¿åº¦ï¼ˆåº”æ ¹æ®å®žé™…éœ€è¦ç¡®å®šæ­¤å€¼ï¼‰
 
-#define Status int   //StatusÊÇº¯Êý·µ»ØÖµÀàÐÍ£¬ÆäÖµÊÇº¯Êý½á¹û×´Ì¬´úÂë(¿É¸ù¾ÝÊµ¼ÊÐèÒªÑ¡ÔñStatus´ú±íµÄÊý¾ÝÀàÐÍ£¬´ËÀýÎªintÐÍ)
+#define Status int   //Statusæ˜¯å‡½æ•°è¿”å›žå€¼ç±»åž‹ï¼Œå…¶å€¼æ˜¯å‡½æ•°ç»“æžœçŠ¶æ€ä»£ç (å¯æ ¹æ®å®žé™…éœ€è¦é€‰æ‹©Statusä»£è¡¨çš„æ•°æ®ç±»åž‹ï¼Œæ­¤ä¾‹ä¸ºintåž‹)
 
-/****************StatusÒ²¿ÉÒÔÈçÏÂ·½Ê½¶¨Òå***************************************/
-//typedef int Status; //StatusÊÇº¯Êý·µ»ØÖµÀàÐÍ£¬ÆäÖµÊÇº¯Êý½á¹û×´Ì¬´úÂë(¿É¸ù¾ÝÊµ¼ÊÐèÒªÑ¡ÔñStatus´ú±íµÄÊý¾ÝÀàÐÍ£¬´ËÀýÎªintÐÍ)
+/****************Statusä¹Ÿå¯ä»¥å¦‚ä¸‹æ–¹å¼å®šä¹‰***************************************/
+//typedef int Status; //Statusæ˜¯å‡½æ•°è¿”å›žå€¼ç±»åž‹ï¼Œå…¶å€¼æ˜¯å‡½æ•°ç»“æžœçŠ¶æ€ä»£ç (å¯æ ¹æ®å®žé™…éœ€è¦é€‰æ‹©Statusä»£è¡¨çš„æ•°æ®ç±»åž‹ï¼Œæ­¤ä¾‹ä¸ºintåž‹)
 
-/********¶¨Òå£¨Éè¼Æ£©Êý¾Ý´æ´¢½á¹¹ÀàÐÍ********************/
+/********å®šä¹‰ï¼ˆè®¾è®¡ï¼‰æ•°æ®å­˜å‚¨ç»“æž„ç±»åž‹********************/
 typedef struct
 {
-	int Snumber;  //Ñ§ºÅ
-	string name;  //ÐÕÃû
-	string major; //×¨Òµ
+	int Snumber;  //å­¦å·
+	string name;  //å§“å
+	string major; //ä¸“ä¸š
 }Student;
 
 
-typedef struct SqList //ÓÃtypedef£¨ÀàÐÍ¶¨Òå£©ÃèÊö½áµãµÄÊý¾Ý´æ´¢½á¹¹(ÊÇÒ»¸ö½á¹¹Ìå£¬Ãû×Ö×Ô¶¨£¬ÕâÀï½«ËüÈ¡ÃûÎªSqList,¼´Ë³Ðò±íµÄÓ¢ÎÄËõÐ´)
+typedef struct SqList //ç”¨typedefï¼ˆç±»åž‹å®šä¹‰ï¼‰æè¿°ç»“ç‚¹çš„æ•°æ®å­˜å‚¨ç»“æž„(æ˜¯ä¸€ä¸ªç»“æž„ä½“ï¼Œåå­—è‡ªå®šï¼Œè¿™é‡Œå°†å®ƒå–åä¸ºSqList,å³é¡ºåºè¡¨çš„è‹±æ–‡ç¼©å†™)
 {
-	Student *e;      //eÎªStudentÐÍÊý¾ÝÔªËØ´æ´¢µØÖ·Ö¸Õë£¬±£´æµÄÊÇStudentÐÍ½á¹¹ÌåÊý×é*eµÄ»ùµØÖ·
-	int length;      //Ë³Ðò±íÖÐµÄÊµ¼Ê½áµãÊýÁ¿£¨¼´Êµ¼ÊÑ¡¿ÎÑ§ÉúÊýÁ¿£¬0 =< length =< MAXSIZE £©
+	Student *e;      //eä¸ºStudentåž‹æ•°æ®å…ƒç´ å­˜å‚¨åœ°å€æŒ‡é’ˆï¼Œä¿å­˜çš„æ˜¯Studentåž‹ç»“æž„ä½“æ•°ç»„*eçš„åŸºåœ°å€
+	int length;      //é¡ºåºè¡¨ä¸­çš„å®žé™…ç»“ç‚¹æ•°é‡ï¼ˆå³å®žé™…é€‰è¯¾å­¦ç”Ÿæ•°é‡ï¼Œ0 =< length =< MAXSIZE ï¼‰
 
-}SqList;   //ÒÔºó¿ÉÒÔÓÃSqList×÷Îª´Ë×Ô¶¨ÒåÀàÐÍµÄÀàÐÍÃû,ÓÃÀ´¶¨Òå±äÁ¿£¬Èç½«x¶¨ÒåÎªSqListÀàÐÍ£ºSqlist x; x¾Í³ÉÎª´Ë½á¹¹ÌåÀàÐÍµÄ±äÁ¿
+}SqList;   //ä»¥åŽå¯ä»¥ç”¨SqListä½œä¸ºæ­¤è‡ªå®šä¹‰ç±»åž‹çš„ç±»åž‹å,ç”¨æ¥å®šä¹‰å˜é‡ï¼Œå¦‚å°†xå®šä¹‰ä¸ºSqListç±»åž‹ï¼šSqlist x; xå°±æˆä¸ºæ­¤ç»“æž„ä½“ç±»åž‹çš„å˜é‡
 
 
 
 /******************************************/
 
 int main() {
-	//¶¨ÒåµÄ»ù±¾²Ù×÷£º
-	Status InitList(SqList &L);                     //º¯ÊýÉùÃ÷£¬»ù±¾²Ù×÷1£º³õÊ¼»¯£¨¹¹ÔìÒ»¸ö¿ÕµÄË³Ðò±íL£©
-	Status CreateList(SqList &L);                   //º¯ÊýÉùÃ÷£¬»ù±¾²Ù×÷2£º´´½¨£¨°ÑÑ§ÉúÃûµ¥ÊäÈëË³Ðò±íL£©
+	//å®šä¹‰çš„åŸºæœ¬æ“ä½œï¼š
+	Status InitList(SqList &L);                     //å‡½æ•°å£°æ˜Žï¼ŒåŸºæœ¬æ“ä½œ1ï¼šåˆå§‹åŒ–ï¼ˆæž„é€ ä¸€ä¸ªç©ºçš„é¡ºåºè¡¨Lï¼‰
+	Status CreateList(SqList &L);                   //å‡½æ•°å£°æ˜Žï¼ŒåŸºæœ¬æ“ä½œ2ï¼šåˆ›å»ºï¼ˆæŠŠå­¦ç”Ÿåå•è¾“å…¥é¡ºåºè¡¨Lï¼‰
 
 
 //======================================================================================
-	void Choose_num(int& choose); //º¯ÊýÉùÃ÷£¬ÌáÊ¾²¢Ñ¡ÔñÊäÈë²Ù×÷±àºÅ
+	void Choose_num(int& choose); //å‡½æ•°å£°æ˜Žï¼Œæç¤ºå¹¶é€‰æ‹©è¾“å…¥æ“ä½œç¼–å·
 
-	SqList L;            //¶¨ÒåÒ»¸ö±äÁ¿L£¬LÎªSqListÀàÐÍ£¨¼´LÊÇÒ»¸öSqListÐÍ½á¹¹Ìå±äÁ¿£¬ÄÚ²¿ÓÐÁ½¸ö»ù±¾ÐÍ±äÁ¿³ÉÔ±£ºeºÍlength£©
+	SqList L;            //å®šä¹‰ä¸€ä¸ªå˜é‡Lï¼ŒLä¸ºSqListç±»åž‹ï¼ˆå³Læ˜¯ä¸€ä¸ªSqListåž‹ç»“æž„ä½“å˜é‡ï¼Œå†…éƒ¨æœ‰ä¸¤ä¸ªåŸºæœ¬åž‹å˜é‡æˆå‘˜ï¼šeå’Œlengthï¼‰
 
 
 
-	int i = 1;   //¼ÆÊýÆ÷
-	char temp;  //ÁÙÊ±¸¨Öú×Ö·û±äÁ¿,ÓÃÓÚÇå³ýÊäÈë´íÎó
+	int i = 1;   //è®¡æ•°å™¨
+	char temp;  //ä¸´æ—¶è¾…åŠ©å­—ç¬¦å˜é‡,ç”¨äºŽæ¸…é™¤è¾“å…¥é”™è¯¯
 
-	Student student_data;  //¶¨ÒåStudentÀàÐÍµÄ½á¹¹Ìå±äÁ¿student_data	
+	Student student_data;  //å®šä¹‰Studentç±»åž‹çš„ç»“æž„ä½“å˜é‡student_data	
 
-	string name;         //¶¨ÒåÐÕÃû×Ö·û´®±äÁ¿(ÓÃÓÚ²éÕÒ²Ù×÷£¬ÊäÈëÐèÒª²éÕÒµÄÑ§ÉúÐÕÃû)
+	string name;         //å®šä¹‰å§“åå­—ç¬¦ä¸²å˜é‡(ç”¨äºŽæŸ¥æ‰¾æ“ä½œï¼Œè¾“å…¥éœ€è¦æŸ¥æ‰¾çš„å­¦ç”Ÿå§“å)
 
-	int flag_init = 0;   //Ë³Ðò±í³õÊ¼»¯±êÖ¾£¬0:Î´³õÊ¼»¯,1:ÒÑ³õÊ¼»¯
-	int flag_create = 0; //Ë³Ðò±í´´½¨±êÖ¾ 0:Î´´´½¨£¬1:ÒÑ´´½¨
+	int flag_init = 0;   //é¡ºåºè¡¨åˆå§‹åŒ–æ ‡å¿—ï¼Œ0:æœªåˆå§‹åŒ–,1:å·²åˆå§‹åŒ–
+	int flag_create = 0; //é¡ºåºè¡¨åˆ›å»ºæ ‡å¿— 0:æœªåˆ›å»ºï¼Œ1:å·²åˆ›å»º
 
-	int choose;          //¶¨Òå»ù±¾²Ù×÷Ñ¡Ôñ±àºÅ
-	choose = -1;         //³õÊ¼»¯Ñ¡ÔñµÄ±àºÅÎª-1£¨Êµ¼ÊÎÞ´Ë±àºÅ£©
+	int choose;          //å®šä¹‰åŸºæœ¬æ“ä½œé€‰æ‹©ç¼–å·
+	choose = -1;         //åˆå§‹åŒ–é€‰æ‹©çš„ç¼–å·ä¸º-1ï¼ˆå®žé™…æ— æ­¤ç¼–å·ï¼‰
 
 
 	while (choose != 0)
 	{
 
-		Choose_num(choose);  //ÌáÊ¾²¢Ñ¡ÔñÊäÈë²Ù×÷±àºÅ
+		Choose_num(choose);  //æç¤ºå¹¶é€‰æ‹©è¾“å…¥æ“ä½œç¼–å·
 
-		if (!cin)            //ÅÐ¶ÏÊäÈëÊÇ·ñÎªÊý×Ö
+		if (!cin)            //åˆ¤æ–­è¾“å…¥æ˜¯å¦ä¸ºæ•°å­—
 		{
-			cout << "\nÊäÈë²Ù×÷Ñ¡Ôñ±àºÅ·ÇÊý×Ö!ÇëÖØÐÂÊäÈë\n";
-			cin.clear();  //Çå³ý»º³åÇø´íÎó±êÖ¾		  
-			while ((temp = getchar()) != '\n');  //½«ÊäÈëµ½»º³åÇøµÄÊý×ÖÒ»¸öÒ»¸öÄ¨È¥£¬Ö±µ½»»ÐÐ·ûÎªÖ¹,Ò²¿ÉÓÃcin.ignore(a,'\n')
+			cout << "\nè¾“å…¥æ“ä½œé€‰æ‹©ç¼–å·éžæ•°å­—!è¯·é‡æ–°è¾“å…¥\n";
+			cin.clear();  //æ¸…é™¤ç¼“å†²åŒºé”™è¯¯æ ‡å¿—		  
+			while ((temp = getchar()) != '\n');  //å°†è¾“å…¥åˆ°ç¼“å†²åŒºçš„æ•°å­—ä¸€ä¸ªä¸€ä¸ªæŠ¹åŽ»ï¼Œç›´åˆ°æ¢è¡Œç¬¦ä¸ºæ­¢,ä¹Ÿå¯ç”¨cin.ignore(a,'\n')
 			choose = -1;
 			continue;
 		}
@@ -100,56 +100,56 @@ int main() {
 
 		switch (choose)
 		{
-		case 0: break;  //ÍË³ö
+		case 0: break;  //é€€å‡º
 
-		case 1: //³õÊ¼»¯
-			if (InitList(L)) // ¹¹ÔìÒ»¸ö¿ÕµÄË³Ðò±íL£¨³õÊ¼»¯Ë³Ðò±í£©
+		case 1: //åˆå§‹åŒ–
+			if (InitList(L)) // æž„é€ ä¸€ä¸ªç©ºçš„é¡ºåºè¡¨Lï¼ˆåˆå§‹åŒ–é¡ºåºè¡¨ï¼‰
 			{
-				flag_init = 1; cout << "\n³õÊ¼»¯³É¹¦!\n\n";
-			} //ÉèÖÃ³õÊ¼»¯³É¹¦±êÖ¾
+				flag_init = 1; cout << "\nåˆå§‹åŒ–æˆåŠŸ!\n\n";
+			} //è®¾ç½®åˆå§‹åŒ–æˆåŠŸæ ‡å¿—
 			else
-				cout << "\n³õÊ¼»¯Ê§°Ü!\n\n";
+				cout << "\nåˆå§‹åŒ–å¤±è´¥!\n\n";
 			break;
 
-		case 2: //´´½¨
-			if (!flag_init) { cout << "\nÉÐÎ´³õÊ¼»¯\n"; break; }
+		case 2: //åˆ›å»º
+			if (!flag_init) { cout << "\nå°šæœªåˆå§‹åŒ–\n"; break; }
 			if (flag_create) {
-				cout << "\nÒÑ´´½¨£¬ÊÇ·ñÖØÐÂ´´½¨£¿ÈôÊÇ£¬ÇëÊäÈëY >";
+				cout << "\nå·²åˆ›å»ºï¼Œæ˜¯å¦é‡æ–°åˆ›å»ºï¼Ÿè‹¥æ˜¯ï¼Œè¯·è¾“å…¥Y >";
 				char answer;
 				cin >> answer;
 				if (answer == 'y' || answer == 'Y');
 				else break;
 			}
-			CreateList(L);   //°ÑÑ§ÉúÃûµ¥ÊäÈë´ËË³Ðò±íL£¨´´½¨Ë³Ðò±í£©
+			CreateList(L);   //æŠŠå­¦ç”Ÿåå•è¾“å…¥æ­¤é¡ºåºè¡¨Lï¼ˆåˆ›å»ºé¡ºåºè¡¨ï¼‰
 			if (L.length)
-				flag_create = 1; //´´½¨³É¹¦±êÖ¾
+				flag_create = 1; //åˆ›å»ºæˆåŠŸæ ‡å¿—
 			else 
 				flag_create = 0;
 			break;
 
-		case 3:  //È¡Öµ
+		case 3:  //å–å€¼
 
-			cout << "\n´Ë²Ù×÷ÉÐÎ´±àÐ´´úÂë\n";
+			cout << "\næ­¤æ“ä½œå°šæœªç¼–å†™ä»£ç \n";
 			break;
 
-		case 4:   //²éÕÒ
-			cout << "\n´Ë²Ù×÷ÉÐÎ´±àÐ´´úÂë\n";
+		case 4:   //æŸ¥æ‰¾
+			cout << "\næ­¤æ“ä½œå°šæœªç¼–å†™ä»£ç \n";
 			break;
 
-		case 5:   //²åÈë
-			cout << "\n´Ë²Ù×÷ÉÐÎ´±àÐ´´úÂë\n";
+		case 5:   //æ’å…¥
+			cout << "\næ­¤æ“ä½œå°šæœªç¼–å†™ä»£ç \n";
 			break;
 
-		case 6:   //É¾³ý			     
-			cout << "\n´Ë²Ù×÷ÉÐÎ´±àÐ´´úÂë\n";
+		case 6:   //åˆ é™¤			     
+			cout << "\næ­¤æ“ä½œå°šæœªç¼–å†™ä»£ç \n";
 			break;
 
-		case 7:   //Êä³ö
-			if (!flag_create) { cout << "\nÉÐÎ´½¨±í\n"; break; }
-			cout << "\nÑ¡¿ÎÑ§ÉúÃûµ¥(¹²" << L.length << "Ãû):\n";
-			cout << left << setw(15) << "Ñ§ ºÅ" << "\t"
-				<< left << setw(15) << "ÐÕ Ãû" << "\t"
-				<< left << setw(15) << "×¨ Òµ" << endl;
+		case 7:   //è¾“å‡º
+			if (!flag_create) { cout << "\nå°šæœªå»ºè¡¨\n"; break; }
+			cout << "\né€‰è¯¾å­¦ç”Ÿåå•(å…±" << L.length << "å):\n";
+			cout << left << setw(15) << "å­¦ å·" << "\t"
+				<< left << setw(15) << "å§“ å" << "\t"
+				<< left << setw(15) << "ä¸“ ä¸š" << endl;
 
 			for (i = 0; i < L.length; i++)
 			{
@@ -160,7 +160,7 @@ int main() {
 			break;
 
 
-		default:  cout << "\nÊäÈë±àºÅ´íÎó!\n ";
+		default:  cout << "\nè¾“å…¥ç¼–å·é”™è¯¯!\n ";
 
 		}//switch
 
@@ -170,113 +170,113 @@ int main() {
 }//main
 /***********************/
 /***********************/
-void Choose_num(int& choose)  //ÌáÊ¾²¢Ñ¡ÔñÊäÈë²Ù×÷±àºÅ
+void Choose_num(int& choose)  //æç¤ºå¹¶é€‰æ‹©è¾“å…¥æ“ä½œç¼–å·
 {
-	cout << "\n¡¶Êý¾Ý½á¹¹ÓëËã·¨¡·Ñ¡¿ÎÃûµ¥µÄÏàÓ¦²Ù×÷:\n";
-	cout << " 1.³õÊ¼»¯ 2.´´½¨  3.È¡Öµ  4.²éÕÒ\n"
-		<< " 5.²åÈë   6.É¾³ý  7.Êä³ö  0.ÍË³ö\n";
-	cout << "\nÇëÊäÈëÑ¡ÔñµÄ²Ù×÷±àºÅ: ";
+	cout << "\nã€Šæ•°æ®ç»“æž„ä¸Žç®—æ³•ã€‹é€‰è¯¾åå•çš„ç›¸åº”æ“ä½œ:\n";
+	cout << " 1.åˆå§‹åŒ– 2.åˆ›å»º  3.å–å€¼  4.æŸ¥æ‰¾\n"
+		<< " 5.æ’å…¥   6.åˆ é™¤  7.è¾“å‡º  0.é€€å‡º\n";
+	cout << "\nè¯·è¾“å…¥é€‰æ‹©çš„æ“ä½œç¼–å·: ";
 
-	cin >> choose;   //ÊäÈëÑ¡ÔñµÄ»ù±¾²Ù×÷±àºÅ	
+	cin >> choose;   //è¾“å…¥é€‰æ‹©çš„åŸºæœ¬æ“ä½œç¼–å·	
 }
 
 
-/************ÒÔÏÂÊÇ¹©Ö÷º¯Êýµ÷ÓÃµÄ»ù±¾²Ù×÷º¯Êý(ÊµÏÖÏßÐÔ±í³éÏóÊý¾ÝÀàÐÍ¶¨ÒåµÄ¸÷ÖÖ»ù±¾²Ù×÷)***********************/
+/************ä»¥ä¸‹æ˜¯ä¾›ä¸»å‡½æ•°è°ƒç”¨çš„åŸºæœ¬æ“ä½œå‡½æ•°(å®žçŽ°çº¿æ€§è¡¨æŠ½è±¡æ•°æ®ç±»åž‹å®šä¹‰çš„å„ç§åŸºæœ¬æ“ä½œ)***********************/
 /*************************************************************************************************************/
-//»ù±¾²Ù×÷1£º³õÊ¼»¯£¨¹¹ÔìÒ»¸ö¿ÕµÄË³Ðò±í£©
-Status InitList(SqList &L)  //×Ô¶¨ÒåµÄº¯Êý£¬ÊµÏÖ³éÏóÊý¾ÝÀàÐÍÖÐ¶¨ÒåµÄ²Ù×÷£º³õÊ¼»¯¡£¿É²Î¿¼½Ì²ÄP21
-{  // ¹¹ÔìÒ»¸ö¿ÕµÄÏßÐÔ±íL£¬LÔÚÖ÷º¯ÊýÖÐ¶¨Òå£¬ "&"µÄÒâË¼ÊÇÕâÀïÊÇÒýÓÃ£¬º¯ÊýÄÚ²¿¸Ä±äLµÄÖµ£¬·µ»ØÖ÷º¯Êýºó£¬ÔÚÖ÷º¯ÊýÀïÆä¸Ä±äÈÔÈ»ÓÐÐ§           
-   //LÇ°ÃæÈç¹û²»¼Ó&£¬´Ëº¯ÊýÄÚ²¿¸Ä±äL£¬Ìø³ö´Ëº¯Êýºó¾Í»áÎÞÐ§£¬ÓÐÍ¬Ñ§¶¼±ÏÒµÁË»¹¸ã²»Çå³þÕâµã£¬Òª¸ÅÄîÇåÎú£¬ÇÐ¼Ç¡£
+//åŸºæœ¬æ“ä½œ1ï¼šåˆå§‹åŒ–ï¼ˆæž„é€ ä¸€ä¸ªç©ºçš„é¡ºåºè¡¨ï¼‰
+Status InitList(SqList &L)  //è‡ªå®šä¹‰çš„å‡½æ•°ï¼Œå®žçŽ°æŠ½è±¡æ•°æ®ç±»åž‹ä¸­å®šä¹‰çš„æ“ä½œï¼šåˆå§‹åŒ–ã€‚å¯å‚è€ƒæ•™æP21
+{  // æž„é€ ä¸€ä¸ªç©ºçš„çº¿æ€§è¡¨Lï¼ŒLåœ¨ä¸»å‡½æ•°ä¸­å®šä¹‰ï¼Œ "&"çš„æ„æ€æ˜¯è¿™é‡Œæ˜¯å¼•ç”¨ï¼Œå‡½æ•°å†…éƒ¨æ”¹å˜Lçš„å€¼ï¼Œè¿”å›žä¸»å‡½æ•°åŽï¼Œåœ¨ä¸»å‡½æ•°é‡Œå…¶æ”¹å˜ä»ç„¶æœ‰æ•ˆ           
+   //Lå‰é¢å¦‚æžœä¸åŠ &ï¼Œæ­¤å‡½æ•°å†…éƒ¨æ”¹å˜Lï¼Œè·³å‡ºæ­¤å‡½æ•°åŽå°±ä¼šæ— æ•ˆï¼Œæœ‰åŒå­¦éƒ½æ¯•ä¸šäº†è¿˜æžä¸æ¸…æ¥šè¿™ç‚¹ï¼Œè¦æ¦‚å¿µæ¸…æ™°ï¼Œåˆ‡è®°ã€‚
 
-	L.e = new Student[MAXSIZE]; //ÎªË³Ðò±í·ÖÅäÒ»¸ö´óÐ¡ÎªMAXSIZE£¨´ËÀýÊÇ100£©µÄÊý×é¿Õ¼ä,²¢°ÑÆðÊ¼µØÖ·¸³¸ø±íLµÄ³ÉÔ±e(eÊÇÖ¸ÕëÐÍ±äÁ¿£¬ÆäÖµÊÇµØÖ·)
-	if (!L.e) return ERROR;     //·ÖÅäÊ§°Ü£¨±ÈÈçÄÚ´æ¿Õ¼ä²»×ã£©£¬·µ»Ø½á¹û×´Ì¬ÂëERROR,¼´Status=ERROR(¼´Status=0)
-	L.length = 0;              //·ÖÅä³É¹¦£¬Ä¿Ç°»¹Ã»ÓÐ´´½¨Ñ§ÉúÊý¾Ý£¬Ñ§ÉúÊýÁ¿³õÊ¼»¯Îª0
-	return OK;                 //·µ»Ø·ÖÅä³É¹¦×´Ì¬Âë£¬¼´Status=OK(¼´Status=1)
+	L.e = new Student[MAXSIZE]; //ä¸ºé¡ºåºè¡¨åˆ†é…ä¸€ä¸ªå¤§å°ä¸ºMAXSIZEï¼ˆæ­¤ä¾‹æ˜¯100ï¼‰çš„æ•°ç»„ç©ºé—´,å¹¶æŠŠèµ·å§‹åœ°å€èµ‹ç»™è¡¨Lçš„æˆå‘˜e(eæ˜¯æŒ‡é’ˆåž‹å˜é‡ï¼Œå…¶å€¼æ˜¯åœ°å€)
+	if (!L.e) return ERROR;     //åˆ†é…å¤±è´¥ï¼ˆæ¯”å¦‚å†…å­˜ç©ºé—´ä¸è¶³ï¼‰ï¼Œè¿”å›žç»“æžœçŠ¶æ€ç ERROR,å³Status=ERROR(å³Status=0)
+	L.length = 0;              //åˆ†é…æˆåŠŸï¼Œç›®å‰è¿˜æ²¡æœ‰åˆ›å»ºå­¦ç”Ÿæ•°æ®ï¼Œå­¦ç”Ÿæ•°é‡åˆå§‹åŒ–ä¸º0
+	return OK;                 //è¿”å›žåˆ†é…æˆåŠŸçŠ¶æ€ç ï¼Œå³Status=OK(å³Status=1)
 }
 
 /***********************************************************************************************************/
 
-//»ù±¾²Ù×÷2£º´´½¨£¨°ÑÑ§ÉúÃûµ¥ÊäÈë´ËÏßÐÔ±í£©
-Status CreateList(SqList &L)  //°ÑÑ§ÉúÃûµ¥ÊäÈë´ËË³Ðò±íL
+//åŸºæœ¬æ“ä½œ2ï¼šåˆ›å»ºï¼ˆæŠŠå­¦ç”Ÿåå•è¾“å…¥æ­¤çº¿æ€§è¡¨ï¼‰
+Status CreateList(SqList &L)  //æŠŠå­¦ç”Ÿåå•è¾“å…¥æ­¤é¡ºåºè¡¨L
 {
-	//  int student_number;//¶¨ÒåÊäÈëÑ§ºÅ±äÁ¿
-   //string student_name;  //¶¨ÒåÊäÈëÐÕÃû±äÁ¿
-   //string student_major; //¶¨ÒåÊäÈë×¨Òµ±äÁ¿
+	//  int student_number;//å®šä¹‰è¾“å…¥å­¦å·å˜é‡
+   //string student_name;  //å®šä¹‰è¾“å…¥å§“åå˜é‡
+   //string student_major; //å®šä¹‰è¾“å…¥ä¸“ä¸šå˜é‡
 
 
 
-	L.length = 0; //¿ÉË¼¿¼ÓÐÃ»ÓÐÕâÌõÓï¾äµÄ²îÒì
-	int i = 0; //¶¨Òå¼ÆÊýÆ÷i£¬¼ÇÂ¼Ñ§ÉúÐÅÏ¢´æ´¢Î»ÖÃ£¬³õÊ¼»¯Îª0£¨ÆðÊ¼Î»ÖÃ£¬µÚ1¸öÑ§ÉúÐÅÏ¢´æ·ÅÔÚ¡°Î»ÖÃ0¡±,µÚi¸öÑ§ÉúÐÅÏ¢´æ·ÅÔÚÎ»ÖÃ"i-1"£¬ÇÐ¼Ç£©
+	L.length = 0; //å¯æ€è€ƒæœ‰æ²¡æœ‰è¿™æ¡è¯­å¥çš„å·®å¼‚
+	int i = 0; //å®šä¹‰è®¡æ•°å™¨iï¼Œè®°å½•å­¦ç”Ÿä¿¡æ¯å­˜å‚¨ä½ç½®ï¼Œåˆå§‹åŒ–ä¸º0ï¼ˆèµ·å§‹ä½ç½®ï¼Œç¬¬1ä¸ªå­¦ç”Ÿä¿¡æ¯å­˜æ”¾åœ¨â€œä½ç½®0â€,ç¬¬iä¸ªå­¦ç”Ÿä¿¡æ¯å­˜æ”¾åœ¨ä½ç½®"i-1"ï¼Œåˆ‡è®°ï¼‰
 
-	cout << "ÇëÊäÈë Ñ§ºÅ  ÐÕÃû  ×¨Òµ (¿Õ¸ñ¼ä¸ô£¬»Ø³µÊäÈë, 0ÍË³ö):\n\n";
+	cout << "è¯·è¾“å…¥ å­¦å·  å§“å  ä¸“ä¸š (ç©ºæ ¼é—´éš”ï¼Œå›žè½¦è¾“å…¥, 0é€€å‡º):\n\n";
 
 	while (1)
 	{
-		if (L.length == MAXSIZE) { cout << "\n¿Î³Ì½ÌÊÒÈÝÁ¿ÒÑÂú!²»ÄÜ¼ÌÐøÊäÈë¡£"; return ERROR; }   //¡°return ERROR;¡±¿É¸ÄÎª¡°exit(OVERFLOW);¡±
+		if (L.length == MAXSIZE) { cout << "\nè¯¾ç¨‹æ•™å®¤å®¹é‡å·²æ»¡!ä¸èƒ½ç»§ç»­è¾“å…¥ã€‚"; return ERROR; }   //â€œreturn ERROR;â€å¯æ”¹ä¸ºâ€œexit(OVERFLOW);â€
 
-		//ÊäÈë:Ñ§ºÅ¡¢ÐÕÃû¡¢×¨Òµ
+		//è¾“å…¥:å­¦å·ã€å§“åã€ä¸“ä¸š
 		cin >> L.e[i].Snumber;
 		if (!cin)
 		{
-			cout << "\nÑ§ºÅÊäÈë´íÎó£¬ÇëÖØÐÂÊäÈë\n";
-			cin.clear();  //Çå³ý»º³åÇø´íÎó±êÖ¾		  
-			cin.ignore(500, '\n');  //½«ÊäÈëµ½»º³åÇøµÄÊý×ÖÒ»¸öÒ»¸öÄ¨È¥£¬Ö±µ½»»ÐÐ·ûÎªÖ¹		  
+			cout << "\nå­¦å·è¾“å…¥é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥\n";
+			cin.clear();  //æ¸…é™¤ç¼“å†²åŒºé”™è¯¯æ ‡å¿—		  
+			cin.ignore(500, '\n');  //å°†è¾“å…¥åˆ°ç¼“å†²åŒºçš„æ•°å­—ä¸€ä¸ªä¸€ä¸ªæŠ¹åŽ»ï¼Œç›´åˆ°æ¢è¡Œç¬¦ä¸ºæ­¢		  
 			continue;
 		}
-		if (L.e[i].Snumber == 0) break; //=0 means ÍË³ö	
+		if (L.e[i].Snumber == 0) break; //=0 means é€€å‡º	
 
 		cin >> L.e[i].name;
 		if (!cin)
 		{
-			cout << "\nÐÕÃûÊäÈë´íÎó£¬ÇëÖØÐÂÊäÈë\n";
-			cin.clear();  //Çå³ý»º³åÇø´íÎó±êÖ¾		  
-			cin.ignore(500, '\n');  //½«ÊäÈëµ½»º³åÇøµÄÊý×ÖÒ»¸öÒ»¸öÄ¨È¥£¬Ö±µ½»»ÐÐ·ûÎªÖ¹		  
+			cout << "\nå§“åè¾“å…¥é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥\n";
+			cin.clear();  //æ¸…é™¤ç¼“å†²åŒºé”™è¯¯æ ‡å¿—		  
+			cin.ignore(500, '\n');  //å°†è¾“å…¥åˆ°ç¼“å†²åŒºçš„æ•°å­—ä¸€ä¸ªä¸€ä¸ªæŠ¹åŽ»ï¼Œç›´åˆ°æ¢è¡Œç¬¦ä¸ºæ­¢		  
 			continue;
 		}
-		if (L.e[i].name == "0") break; //="0" means ÍË³ö
+		if (L.e[i].name == "0") break; //="0" means é€€å‡º
 
 		cin >> L.e[i].major;
 		if (!cin)
 		{
-			cout << "\n×¨ÒµÊäÈë´íÎó£¬ÇëÖØÐÂÊäÈë\n";
-			cin.clear();  //Çå³ý»º³åÇø´íÎó±êÖ¾		  
-			cin.ignore(500, '\n');  //½«ÊäÈëµ½»º³åÇøµÄÊý×ÖÒ»¸öÒ»¸öÄ¨È¥£¬Ö±µ½»»ÐÐ·ûÎªÖ¹		  
+			cout << "\nä¸“ä¸šè¾“å…¥é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥\n";
+			cin.clear();  //æ¸…é™¤ç¼“å†²åŒºé”™è¯¯æ ‡å¿—		  
+			cin.ignore(500, '\n');  //å°†è¾“å…¥åˆ°ç¼“å†²åŒºçš„æ•°å­—ä¸€ä¸ªä¸€ä¸ªæŠ¹åŽ»ï¼Œç›´åˆ°æ¢è¡Œç¬¦ä¸ºæ­¢		  
 			continue;
 		}
-		if (L.e[i].major == "0") break; //="0" means ÍË³ö		   
+		if (L.e[i].major == "0") break; //="0" means é€€å‡º		   
 
-		L.length++;  //Ë³Ðò±í³¤¶È¼Ó1£¨¼´Êµ¼ÊÑ¡¿ÎÑ§ÉúÊýÁ¿¼Ó1£©
-		i++;         //eÊý×éÏÂ±ê¼Ó1           
+		L.length++;  //é¡ºåºè¡¨é•¿åº¦åŠ 1ï¼ˆå³å®žé™…é€‰è¯¾å­¦ç”Ÿæ•°é‡åŠ 1ï¼‰
+		i++;         //eæ•°ç»„ä¸‹æ ‡åŠ 1           
 
 	}
 	if (L.length)
-		cout << "\n½¨±íÍê³É!\n";
+		cout << "\nå»ºè¡¨å®Œæˆ!\n";
 	else
-		cout << "\nÍË³ö½¨±í\n";
+		cout << "\né€€å‡ºå»ºè¡¨\n";
 	return OK;
 }
 
-/**************ÏÂÃæÎª´ËË³Ðò±íÉÐÎ´ÊµÏÖµÄ»ù±¾²Ù×÷****************************************************/
+/**************ä¸‹é¢ä¸ºæ­¤é¡ºåºè¡¨å°šæœªå®žçŽ°çš„åŸºæœ¬æ“ä½œ****************************************************/
 /************************************************************************************************/
-//»ù±¾²Ù×÷3£ºÈ¡Öµ£¨ ¸ù¾Ý¸ø¶¨µÄÐòºÅ£¬»ñÈ¡¸ÃÐòºÅµÄÑ§ÉúÐÅÏ¢£©
-//Õâ¶ÎÍ¬Ñ§ÃÇÔÚÊµÑéÖÐÐ´£¬²¢ÏàÓ¦ÐÞ¸ÄÖ÷º¯Êý,ÔÚÄ³ÖÖÇé¿öÏÂµ÷ÓÃ´Ëº¯Êý
-
-
-/************************************************************************************************/
-//»ù±¾²Ù×÷4£º²éÕÒ£¨ ¸ù¾Ý¸ø¶¨Ñ§ÉúÐÕÃû£¬²éÕÒ¸ÃÃûÑ§ÉúÊÇ·ñÔÚ±íÖÐ£¬²¢·µ»Ø²éÕÒ½á¹û£©
-//Õâ¶ÎÍ¬Ñ§ÃÇÔÚÊµÑéÖÐÐ´£¬²¢ÏàÓ¦ÐÞ¸ÄÖ÷º¯Êý,ÔÚÄ³ÖÖÇé¿öÏÂµ÷ÓÃ´Ëº¯Êý
-
+//åŸºæœ¬æ“ä½œ3ï¼šå–å€¼ï¼ˆ æ ¹æ®ç»™å®šçš„åºå·ï¼ŒèŽ·å–è¯¥åºå·çš„å­¦ç”Ÿä¿¡æ¯ï¼‰
+//è¿™æ®µåŒå­¦ä»¬åœ¨å®žéªŒä¸­å†™ï¼Œå¹¶ç›¸åº”ä¿®æ”¹ä¸»å‡½æ•°,åœ¨æŸç§æƒ…å†µä¸‹è°ƒç”¨æ­¤å‡½æ•°
 
 
 /************************************************************************************************/
-//»ù±¾²Ù×÷5£º²åÈë£¨½«ÐÂÔöÑ§ÉúÐÅÏ¢²åÈë±íÖÐÖ¸¶¨Î»ÖÃ£©
-//Õâ¶ÎÍ¬Ñ§ÃÇÔÚÊµÑéÖÐÐ´£¬²¢ÏàÓ¦ÐÞ¸ÄÖ÷º¯Êý,ÔÚÄ³ÖÖÇé¿öÏÂµ÷ÓÃ´Ëº¯Êý
+//åŸºæœ¬æ“ä½œ4ï¼šæŸ¥æ‰¾ï¼ˆ æ ¹æ®ç»™å®šå­¦ç”Ÿå§“åï¼ŒæŸ¥æ‰¾è¯¥åå­¦ç”Ÿæ˜¯å¦åœ¨è¡¨ä¸­ï¼Œå¹¶è¿”å›žæŸ¥æ‰¾ç»“æžœï¼‰
+//è¿™æ®µåŒå­¦ä»¬åœ¨å®žéªŒä¸­å†™ï¼Œå¹¶ç›¸åº”ä¿®æ”¹ä¸»å‡½æ•°,åœ¨æŸç§æƒ…å†µä¸‹è°ƒç”¨æ­¤å‡½æ•°
 
 
 
 /************************************************************************************************/
-//»ù±¾²Ù×÷6£ºÉ¾³ý£¨ ÔÚ±íÖÐ½«¸ÃÉúÐÅÏ¢É¾³ý£©
-//Õâ¶ÎÍ¬Ñ§ÃÇÔÚÊµÑéÖÐÐ´£¬²¢ÏàÓ¦ÐÞ¸ÄÖ÷º¯Êý,ÔÚÄ³ÖÖÇé¿öÏÂµ÷ÓÃ´Ëº¯Êý
+//åŸºæœ¬æ“ä½œ5ï¼šæ’å…¥ï¼ˆå°†æ–°å¢žå­¦ç”Ÿä¿¡æ¯æ’å…¥è¡¨ä¸­æŒ‡å®šä½ç½®ï¼‰
+//è¿™æ®µåŒå­¦ä»¬åœ¨å®žéªŒä¸­å†™ï¼Œå¹¶ç›¸åº”ä¿®æ”¹ä¸»å‡½æ•°,åœ¨æŸç§æƒ…å†µä¸‹è°ƒç”¨æ­¤å‡½æ•°
+
+
+
+/************************************************************************************************/
+//åŸºæœ¬æ“ä½œ6ï¼šåˆ é™¤ï¼ˆ åœ¨è¡¨ä¸­å°†è¯¥ç”Ÿä¿¡æ¯åˆ é™¤ï¼‰
+//è¿™æ®µåŒå­¦ä»¬åœ¨å®žéªŒä¸­å†™ï¼Œå¹¶ç›¸åº”ä¿®æ”¹ä¸»å‡½æ•°,åœ¨æŸç§æƒ…å†µä¸‹è°ƒç”¨æ­¤å‡½æ•°
 
 
 
@@ -284,3 +284,4 @@ Status CreateList(SqList &L)  //°ÑÑ§ÉúÃûµ¥ÊäÈë´ËË³Ðò±íL
 
 
 /*****************************/
+
